@@ -1,68 +1,57 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
+const fs = require("fs");
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-// function renderLicenseLink(license) {}
+// function to generate markdown for README
+function generateMarkdown(data) {
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+  return new Promise(function (resolve, reject) {
+    let licenseContents = "";
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data, githubInfo) {
-  return `
+    fs.readFile(`./utils/licenses/${data.license.name}.txt`, "utf-8", (err, licenseData) => {
+      if (err) {
+        return reject(err);
+      }
+      licenseContents = licenseData;
+      let currentDate = new Date();
+      licenseContents = licenseContents.replace("[yyyy]", currentDate.getFullYear());
+      licenseContents = licenseContents.replace("[Copyright_Owner]", data.devname);
+
+      let markdownContent =
+`![License: ${data.license.name}](${data.license.badge})
 # **${data.title}**
-
-${data.badge}
-
-## Description 
-
+## **Description**
 ${data.description}
-
-## Table of contents
-
-- [Description](#Description)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Licence](#Licence)
-- [Contributors](#Contributors)
-- [Test](#Test)
-- [Repository Link](#Repository)
-- [GitHub Info](#GitHub) 
-
-## Installation
-
-        ${data.installation}
-
-## Usage
-
+## **Table of Contents**
+* [Description](##Description)
+* [Installation](##Installation)
+* [Usage](##Usage)
+* [License](##License)
+* [Contributing](##Contributing)
+* [Tests](##Tests)
+* [Questions](##Questions)
+## **Installation**
+${data.installation}
+## **Usage**
 ${data.usage}
-
-## Licence
-
-${data.licence}
-
-## Contributors
-
-${data.contributing}
-
-## Test
-
-${data.test}
-
-## Repository
-
-- [Project Repo](${data.repo})
-## GitHub
-
-![Image of me](${githubInfo.githubImage})
-- ${githubInfo.name}
-- [GitHub Profile](${githubInfo.profile})
-- <${githubInfo.email}>
-`;
+## **License**
+This project is under the ${data.license.name} License:
+${licenseContents}
+## **Contributing**
+${data.contribution}
+## **Tests**
+${data.tests}
+## **Questions**
+${data.questioning}
+### ***GitHub Profile***
+https://github.com/${data.username}
+### ***Email Contact***
+[${data.email}](mailto:${data.email})`;
+      let ret = {
+        filename: data.filename,
+        markdown: markdownContent
+      }
+      resolve(ret);
+    });
+  });
 }
-
 
 module.exports = generateMarkdown;
