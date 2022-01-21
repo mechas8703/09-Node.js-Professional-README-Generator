@@ -1,103 +1,90 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const axios = require("axios");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
-const questions = [ {
+const questions = [ 
+{
     type: "input",
-    message: "Enter the Project's Title",
-    name: "title"
+    name: "title",
+    message: "What is your project title?"
 },
 {
     type: "input",
-    message: "Describe the Project",
-    name: "description"
+    name: "badge",
+    message: "Please provide the badges links that you want"
 },
 {
     type: "input",
-    message: "Describe the Installation Process",
-    name: "installation"
+    name: "description",
+    message: "Please provide your project's description"
 },
 {
     type: "input",
-    message: "Describe the Usage Information",
-    name: "usage"
+    name: "installation",
+    message: "Please provide the installation instructions"
 },
 {
     type: "input",
-    message: "Describe the Contribution Guidelines",
-    name: "contribution"
+    name: "usage",
+    message: "Please provide the project usage"
 },
 {
     type: "input",
-    message: "Describe the Test Instructions",
-    name: "tests"
-},
-{
-    type: "list",
-    message: "Choose Your Project's License",
-    name: "license",
-    choices: [
-        { name: "Apache", value: { name: "Apache", badge: "https://img.shields.io/badge/License-Apache%202.0-blue.svg" } },
-        { name: "Creative Commons", value: { name: "Creative Commons", badge: "https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg" } },
-        { name: "GNU GPLv3", value: { name: "GNU GPLv3", badge: "https://img.shields.io/badge/License-GPLv3-blue.svg" } },
-        { name: "ISC", value: { name: "ISC", badge: "https://img.shields.io/badge/License-ISC-blue.svg" } },
-        { name: "MIT", value: { name: "MIT", badge: "https://img.shields.io/badge/License-MIT-yellow.svg" } },
-        { name: "Unlicense", value: { name: "Unlicense", badge: "https://img.shields.io/badge/License-Unlicense-blue.svg" } },
-        { name: "Zlib", value: { name: "Zlib", badge: "https://img.shields.io/badge/License-Zlib-lightgrey.svg" } }
-    ]
+    name: "licence",
+    message: "Please provide the project licence or your badge link"
 },
 {
     type: "input",
-    message: "Enter Your GitHub Username",
-    name: "username"
+    name: "contributing",
+    message: "Please provide the contributing parties"
 },
 {
     type: "input",
-    message: "Enter Your Name",
-    name: "devname"
+    name: "test",
+    message: "Please provide the project tests"
 },
 {
     type: "input",
-    message: "Enter Your Email Address",
-    name: "email"
+    name: "username",
+    message: "What is your github user name?"
 },
 {
     type: "input",
-    message: "How Should People Contact You in Case of Questions?",
-    name: "questioning"
+    name: "repo",
+    message: "What is your repo link?"
 },
-{
-    type: "input",
-    message: "How Would You Like to Name Your README File?",
-    name: "filename"
-}];
+];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {const outputsDir = "./outputs";
-
-if (!fs.existsSync(outputsDir)) {
-    fs.mkdir(outputsDir, err => {
-        if (err) {
-            throw Error(err);
-        }
-    });
-}
-
-fs.writeFile(`${outputsDir}/${fileName}.md`, data, "utf-8", err => {
-    if (err) {
-        throw Error(err);
-    }
-    console.log(`${fileName}.md saved to outputs folder!`);
-});}
-
-// TODO: Create a function to initialize app
-function init() {console.log("\x1b[36m","Starting README Questionaire (MarkDown Supported), Answer the Following Questions to Obtain a README File:");
 inquirer
     .prompt(questions)
-    .then(response => generateMarkdown(response))
-    .then(data => writeToFile(data.filename, data.markdown));}
+    .then(function(data){
+        const queryUrl = `https://api.github.com/users/${data.username}`;
 
-// Function call to initialize app
+        axios.get(queryUrl).then(function(res) {
+            
+            const githubInfo = {
+                githubImage: res.data.avatar_url,
+                email: res.data.email,
+                profile: res.data.html_url,
+                name: res.data.name
+            };
+            
+          fs.writeFile("README.md", generate(data, githubInfo), function(err) {
+            if (err) {
+              throw err;
+            };
+    
+            console.log("New README file created with success!");
+          });
+        });
+
+});
+
+function init() {
+
+}
+
 init();
