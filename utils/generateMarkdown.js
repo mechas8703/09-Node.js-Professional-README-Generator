@@ -18,31 +18,41 @@ function generateMarkdown(data) {
       let markdownContent =
 `![License: ${data.license.name}](${data.license.badge})
 # **${data.title}**
+
 ## **Description**
 ${data.description}
+
 ## **Table of Contents**
 * [Description](##Description)
 * [Installation](##Installation)
-* [Usage](##Usage)
+* [Usage](##Usage).exit
 * [License](##License)
 * [Contributing](##Contributing)
 * [Tests](##Tests)
 * [Questions](##Questions)
+
 ## **Installation**
 ${data.installation}
+
 ## **Usage**
 ${data.usage}
+
 ## **License**
 This project is under the ${data.license.name} License:
 ${licenseContents}
+
 ## **Contributing**
 ${data.contribution}
+
 ## **Tests**
 ${data.tests}
+
 ## **Questions**
 ${data.questioning}
+
 ### ***GitHub Profile***
 https://github.com/${data.username}
+
 ### ***Email Contact***
 [${data.email}](mailto:${data.email})`;
       let ret = {
