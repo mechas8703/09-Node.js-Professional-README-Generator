@@ -33,13 +33,11 @@ node index.js
 ![GitHub license](https://img.shields.io/badge/test-100%25-success)
 
 ## Repository
-- [Project Repo]([Project Repo](https://github.com/mechas8703/09-Node.js-Professional-README-Generator))
+- [Project Repo](https://github.com/mechas8703/09-Node.js-Professional-README-Generator)
 
 ### App working example
 
 ![Git](screen-capture.webm)   
-<!-- [Video Link](./screen-capture.webm) -->
-
 
 ## GitHub
 ![Image of me](https://avatars.githubusercontent.com/u/92689466?v=4)
