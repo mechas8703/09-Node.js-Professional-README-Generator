@@ -38,7 +38,7 @@ node index.js
 ### App working example
 
 ![Git](screen-capture.webm)   
-<!-- [Video Link](./screen-capture.webm) -->
+[Video Link](./screen-capture.webm) 
 
 
 ## GitHub
