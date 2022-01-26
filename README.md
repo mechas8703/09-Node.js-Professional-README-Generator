@@ -30,4 +30,3 @@ node index.js
 ![Image of me](https://avatars.githubusercontent.com/u/92689466?v=4)
 - Maria M. Cardona
 - [GitHub Profile](https://github.com/mechas8703)
-- <null>
