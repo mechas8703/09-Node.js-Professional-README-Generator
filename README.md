@@ -1,5 +1,5 @@
 
-# **# 09 Node.js Homework: Professional README Generator**
+# 09 Node.js Homework: Professional README Generator
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![GitHub license](https://img.shields.io/badge/made%20by-Maria%20Cardona-brightgreen)
@@ -33,13 +33,17 @@ node index.js
 ![GitHub license](https://img.shields.io/badge/test-100%25-success)
 
 ## Repository
-- [Project Repo]([Project Repo](https://github.com/mechas8703/09-Node.js-Professional-README-Generator))
+- [Project Repo](https://github.com/mechas8703/09-Node.js-Professional-README-Generator)
+- [Deployed](https://mechas8703.github.io/09-Node.js-Professional-README-Generator/)
 
 ### App working example
 
 ![Git](screen-capture.webm)   
+<<<<<<< HEAD
 [Video Link](./screen-capture.webm) 
 
+=======
+>>>>>>> 9521dd752cde15cb340d677e9abcda5d4e1b6190
 
 ## GitHub
 ![Image of me](https://avatars.githubusercontent.com/u/92689466?v=4)
