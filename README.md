@@ -39,11 +39,8 @@ node index.js
 ### App working example
 
 ![Git](screen-capture.webm)   
-<<<<<<< HEAD
 [Video Link](./screen-capture.webm) 
 
-=======
->>>>>>> 9521dd752cde15cb340d677e9abcda5d4e1b6190
 
 ## GitHub
 ![Image of me](https://avatars.githubusercontent.com/u/92689466?v=4)
