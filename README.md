@@ -38,8 +38,8 @@ node index.js
 
 ### App working example
 
-![](repovideo.mp4)   
-<!-- [Video Link](./repovideo.mp4)  -->
+![video](./video.gif)   
+[Video Link](https://watch.screencastify.com/v/QYCZDwT8BBaCI854umIk) 
 
 
 ## GitHub
