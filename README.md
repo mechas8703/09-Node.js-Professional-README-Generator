@@ -38,8 +38,13 @@ node index.js
 
 ### App working example
 
+<<<<<<< HEAD
 ![video](./video.gif)   
 [Video Link](https://watch.screencastify.com/v/QYCZDwT8BBaCI854umIk) 
+=======
+![](https://onedrive.live.com/?cid=D0B674936F5AF566&id=D0B674936F5AF566%211297&parId=D0B674936F5AF566%211291&o=OneUp)   
+[Video Link](https://onedrive.live.com/?cid=D0B674936F5AF566&id=D0B674936F5AF566%211297&parId=D0B674936F5AF566%211291&o=OneUp) 
+>>>>>>> 3a11c04ec4e37bfa95a39853280bdbe7fbb94af1
 
 
 ## GitHub
